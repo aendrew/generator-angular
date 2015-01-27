@@ -300,14 +300,6 @@ Generator.prototype.readIndex = function readIndex() {
   this.indexFile = this.engine(this.read('app/index.html'), this);
 };
 
-Generator.prototype.bootstrapFiles = function bootstrapFiles() {
-  var cssFile = 'styles/main.' + (this.compass ? 's' : '') + 'css';
-  this.copy(
-    path.join('app', cssFile),
-    path.join(this.appPath, cssFile)
-  );
-};
-
 Generator.prototype.appJs = function appJs() {
   this.indexFile = this.appendFiles({
     html: this.indexFile,

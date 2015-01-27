@@ -41,7 +41,7 @@ Available generators:
 * [angular:view](#view)
 
 ### App
-Sets up a new AngularJS app, generating all the boilerplate you need to get started. The app generator also optionally installs Bootstrap and additional AngularJS modules, such as angular-resource (installed by default).
+Sets up a new AngularJS app, generating all the boilerplate you need to get started. The app generator also optionally installs Bourbon and additional AngularJS modules, such as angular-resource (installed by default).
 
 Example:
 ```bash
