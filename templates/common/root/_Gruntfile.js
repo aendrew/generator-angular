@@ -222,16 +222,26 @@ module.exports = function (grunt) {
         httpFontsPath: '/styles/fonts',
         relativeAssets: false,
         assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'<% if (bitters) { %>,
+        precision: 10<% if (bitters) { %>,
         includePaths: require('node-bourbon').includePaths.concat(require('node-neat-bitters').includePaths) <% } else if (neat) { %>,
         includePaths: require('node-bourbon').includePaths.concat(require('node-neat').includePaths) <% } %>
       },
       dist: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/styles/',
+        src: '**/*.{sass,scss}',
+        dest: '.tmp/styles',
+        ext: '.css',
         options: {
           generatedImagesDir: '<%%= yeoman.dist %>/images/generated'
         }
       },
       server: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/styles/',
+        src: '**/*.{sass,scss}',
+        dest: '.tmp/styles',
+        ext: '.css',
         options: {
           debugInfo: true
         }
