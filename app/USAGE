@@ -1,8 +1,8 @@
 Description:
-    Creates a default AngularJS app
+    Creates an AngularJS app with Bourbon, Neat and Bitters
 
 Example:
-    yo angular [--coffee]
+    yo angular-bourbon [--coffee]
 
     This will create:
         Gruntfile.js

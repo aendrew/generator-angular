@@ -151,7 +151,7 @@ Generator.prototype.welcome = function welcome() {
     this.log(yosay());
     this.log(
       chalk.magenta(
-        'Out of the box I include Bootstrap and some AngularJS recommended modules.' +
+        'Out of the box I include Bourbon, Bourbon Neat, Bourbon Bitters and some AngularJS recommended modules.' +
         '\n'
       )
     );
@@ -166,41 +166,32 @@ Generator.prototype.welcome = function welcome() {
   }
 };
 
-Generator.prototype.askForCompass = function askForCompass() {
+Generator.prototype.askForNeat = function askForNeat() {
   var cb = this.async();
 
   this.prompt([{
     type: 'confirm',
-    name: 'compass',
-    message: 'Would you like to use Sass (with Compass)?',
+    name: 'neat',
+    message: 'Would you like to use Bourbon Neat?',
     default: true
   }], function (props) {
-    this.compass = props.compass;
+    this.neat = props.neat;
 
     cb();
   }.bind(this));
 };
 
-Generator.prototype.askForBootstrap = function askForBootstrap() {
+Generator.prototype.askForBitters = function askForBitters() {
   var compass = this.compass;
   var cb = this.async();
 
   this.prompt([{
     type: 'confirm',
-    name: 'bootstrap',
-    message: 'Would you like to include Bootstrap?',
+    name: 'bitters',
+    message: 'Would you like to include Bourbon Bitters?',
     default: true
-  }, {
-    type: 'confirm',
-    name: 'compassBootstrap',
-    message: 'Would you like to use the Sass version of Bootstrap?',
-    default: true,
-    when: function (props) {
-      return props.bootstrap && compass;
-    }
   }], function (props) {
-    this.bootstrap = props.bootstrap;
-    this.compassBootstrap = props.compassBootstrap;
+    this.bitters = props.bitters;
 
     cb();
   }.bind(this));

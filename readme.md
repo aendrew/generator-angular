@@ -1,14 +1,13 @@
-# AngularJS generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-angular.svg?branch=master)](http://travis-ci.org/yeoman/generator-angular)
+# Bourbon + AngularJS generator [![Build Status](https://secure.travis-ci.org/aendrew/generator-angular-bourbon.svg?branch=master)](http://travis-ci.org/aendrew/generator-angular-bourbon)
 
-> Yeoman generator for AngularJS - lets you quickly set up a project with sensible defaults and best practices.
-
-[Roadmap for upcoming plans/features/fixes](https://github.com/yeoman/generator-angular/issues/553)
+> Yeoman generator for AngularJS and Bourbon - lets you quickly set up a project with sensible defaults and best practices.
+> Shamelessly modified from [yeoman/generator-angular](http://github.com/yeoman/generator-angular) by @aendrew.
 
 ## Usage
 
 Install `generator-angular`:
 ```
-npm install -g generator-angular
+npm install -g generator-angular-bourbon
 ```
 
 Make a new directory, and `cd` into it:
@@ -16,9 +15,9 @@ Make a new directory, and `cd` into it:
 mkdir my-new-project && cd $_
 ```
 
-Run `yo angular`, optionally passing an app name:
+Run `yo angular-bourbon`, optionally passing an app name:
 ```
-yo angular [app-name]
+yo angular-bourbon [app-name]
 ```
 
 Run `grunt` for building and `grunt serve` for preview
@@ -46,7 +45,7 @@ Sets up a new AngularJS app, generating all the boilerplate you need to get star
 
 Example:
 ```bash
-yo angular
+yo angular-bourbon
 ```
 
 ### Route
@@ -54,7 +53,7 @@ Generates a controller and view, and configures a route in `app/scripts/app.js` 
 
 Example:
 ```bash
-yo angular:route myroute
+yo angular-bourbon:route myroute
 ```
 
 Produces `app/scripts/controllers/myroute.js`:
@@ -73,7 +72,7 @@ Produces `app/views/myroute.html`:
 
 Example:
 ```bash
-yo angular:route myRoute --uri=my/route
+yo angular-bourbon:route myRoute --uri=my/route
 ```
 
 Produces controller and view as above and adds a route to `app/scripts/app.js`
@@ -84,7 +83,7 @@ Generates a controller in `app/scripts/controllers`.
 
 Example:
 ```bash
-yo angular:controller user
+yo angular-bourbon:controller user
 ```
 
 Produces `app/scripts/controllers/user.js`:
@@ -98,7 +97,7 @@ Generates a directive in `app/scripts/directives`.
 
 Example:
 ```bash
-yo angular:directive myDirective
+yo angular-bourbon:directive myDirective
 ```
 
 Produces `app/scripts/directives/myDirective.js`:
@@ -119,7 +118,7 @@ Generates a filter in `app/scripts/filters`.
 
 Example:
 ```bash
-yo angular:filter myFilter
+yo angular-bourbon:filter myFilter
 ```
 
 Produces `app/scripts/filters/myFilter.js`:
@@ -136,7 +135,7 @@ Generates an HTML view file in `app/views`.
 
 Example:
 ```bash
-yo angular:view user
+yo angular-bourbon:view user
 ```
 
 Produces `app/views/user.html`:
@@ -149,7 +148,7 @@ Generates an AngularJS service.
 
 Example:
 ```bash
-yo angular:service myService
+yo angular-bourbon:service myService
 ```
 
 Produces `app/scripts/services/myService.js`:
@@ -159,14 +158,14 @@ angular.module('myMod').service('myService', function () {
 });
 ```
 
-You can also do `yo angular:factory`, `yo angular:provider`, `yo angular:value`, and `yo angular:constant` for other types of services.
+You can also do `yo angular-bourbon:factory`, `yo angular-bourbon:provider`, `yo angular-bourbon:value`, and `yo angular-bourbon:constant` for other types of services.
 
 ### Decorator
 Generates an AngularJS service decorator.
 
 Example:
 ```bash
-yo angular:decorator serviceName
+yo angular-bourbon:decorator serviceName
 ```
 
 Produces `app/scripts/decorators/serviceNameDecorator.js`:
@@ -187,7 +186,7 @@ For generators that output scripts, the `--coffee` option will output CoffeeScri
 
 For example:
 ```bash
-yo angular:controller user --coffee
+yo angular-bourbon:controller user --coffee
 ```
 
 Produces `app/scripts/controller/user.coffee`:
@@ -220,7 +219,7 @@ By default, new scripts are added to the index.html file. However, this may not 
 
 To skip adding them to the index, pass in the skip-add argument:
 ```bash
-yo angular:service serviceName --skip-add
+yo angular-bourbon:service serviceName --skip-add
 ```
 
 ## Bower Components
@@ -262,7 +261,7 @@ This will cause Yeoman-generated client-side files to be placed in `public`.
 
 Note that you can also achieve the same results by adding an `--appPath` option when starting generator:
 ```bash
-yo angular [app-name] --appPath=public
+yo angular-bourbon [app-name] --appPath=public
 ```
 
 ## Testing
@@ -283,7 +282,7 @@ When submitting a new feature, add tests that cover the feature.
 
 ## Changelog
 
-Recent changes can be viewed on Github on the [Releases Page](https://github.com/yeoman/generator-angular/releases)
+Recent changes can be viewed on Github on the [Releases Page](https://github.com/aendrew/generator-angular-bourbon/releases)
 
 ## License
 

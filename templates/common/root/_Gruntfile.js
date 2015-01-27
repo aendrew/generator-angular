@@ -51,15 +51,11 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
-      },<% } %><% if (compass) { %>
-      compass: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
-      },<% } else { %>
-      styles: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
       },<% } %>
+      sass: {
+        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['sass:server', 'autoprefixer']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -178,11 +174,11 @@ module.exports = function (grunt) {
       app: {
         src: ['<%%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
-      }<% if (compass) { %>,
+      },
       sass: {
         src: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
-      }<% } %>
+      }
     },<% if (coffee) { %>
 
     // Compiles CoffeeScript to JavaScript
@@ -209,10 +205,10 @@ module.exports = function (grunt) {
           ext: '.js'
         }]
       }
-    },<% } %><% if (compass) { %>
+    },<% } %>
 
     // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
+    sass: {
       options: {
         sassDir: '<%%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
@@ -238,7 +234,7 @@ module.exports = function (grunt) {
           debugInfo: true
         }
       }
-    },<% } %>
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -387,19 +383,7 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%%= yeoman.dist %>/images',
           src: ['generated/*']
-        }<% if (bootstrap) { %>, {
-          expand: true,
-          cwd: '<% if (!compassBootstrap) {
-              %>bower_components/bootstrap/dist<%
-            } else {
-              %>.<%
-            } %>',
-          src: '<% if (compassBootstrap) {
-              %>bower_components/bootstrap-sass-official/assets/fonts/bootstrap<%
-            } else { %>fonts<% }
-            %>/*',
-          dest: '<%%= yeoman.dist %>'
-        }<% } %>]
+        }]
       },
       styles: {
         expand: true,
@@ -412,19 +396,16 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [<% if (coffee) { %>
-        'coffee:dist',<% } %><% if (compass) { %>
-        'compass:server'<% } else { %>
-        'copy:styles'<% } %>
+        'coffee:dist',<% } %>
+        'sass:server'
       ],
       test: [<% if (coffee) { %>
-        'coffee',<% } %><% if (compass) { %>
-        'compass'<% } else { %>
-        'copy:styles'<% } %>
+        'coffee',<% } %>
+        'sass'
       ],
       dist: [<% if (coffee) { %>
-        'coffee',<% } %><% if (compass) { %>
-        'compass:dist',<% } else { %>
-        'copy:styles',<% } %>
+        'coffee',<% } %>
+        'sass:dist',
         'imagemin',
         'svgmin'
       ]
