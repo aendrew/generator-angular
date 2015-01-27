@@ -223,8 +223,8 @@ module.exports = function (grunt) {
         relativeAssets: false,
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'<% if (bitters) { %>,
-        includePaths: [require('node-bourbon').includePaths, require('node-neat-bitters').includePaths] <% } else if (neat) { %>,
-        includePaths: [require('node-bourbon').includePaths, require('node-neat').includePaths] <% } %>
+        includePaths: require('node-bourbon').includePaths.concat(require('node-neat-bitters').includePaths) <% } else if (neat) { %>,
+        includePaths: require('node-bourbon').includePaths.concat(require('node-neat').includePaths) <% } %>
       },
       dist: {
         options: {
